@@ -36,16 +36,20 @@ Note: this plugin is not supporting Webhook method now, we are working on it.
 == Installation ==
 From your WordPress dashboard
 1. Visit 'Plugins > Add New'
+
 2. Search for 'Telegram Bot Newsletter'
+
 3. Activate Telegram Newsletter from your Plugins page. (You'll be greeted with a Welcome page.)
 
 From WordPress.org
 1. Download Telegram Newsletter.
+
 2. Upload the 'Telegram-Newsletter' directory to your '/wp-content/plugins/' directory, using your favorite method (ftp, sftp, scp, etc...)
 Activate Telegram Newsletter from your Plugins page.
 
 Extra
 Visit 'Settings > Telegram API' and adjust your configuration.
+
 a new Page Template is added as 'Telegram API', make a new page, use this template and view the page for manual updates.
 
 == Frequently Asked Questions ==
