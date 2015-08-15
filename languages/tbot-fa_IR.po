@@ -1,0 +1,263 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.5\n"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-page.php:1
+msgid "%s New Subscribers Added to your List.<br />"
+msgstr "%s کاربر جدید به لیست اعضای خبرنامه اضافه شد.<br />"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-page.php:1
+msgid "%s New Updates Received...<br/>"
+msgstr "%s آپدیت جدید از تلگرام دریافت شد.<br/>"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:120
+msgid "100 new updates"
+msgstr "100 آپدیت جدید"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:122
+msgid "20 new updates"
+msgstr "20 آپدیت جدید"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:121
+msgid "50 new updates"
+msgstr "50 آپدیت جدید"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Add New"
+msgstr "عضو جدید"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Add New Item"
+msgstr "افزودن عضو جدید"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "All Items"
+msgstr "نمایش همه"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:166
+msgid "Before updating this settings please read the Documents carefully"
+msgstr ""
+"قبل از انجام تغییرات در این بخش، آموزش کار با افزونه را به دقت مطالعه کنید."
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/notification-metabox.php:37
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/notification-metabox.php:42
+msgid "Custom Message"
+msgstr "متن دلخواه"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:108
+msgid "Daily"
+msgstr "روزانه"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Edit Item"
+msgstr "ویرایش"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:125
+msgid "Enter Your Telegram Bot Token"
+msgstr "Token دریافتی از تلگرام برای روبات را وارد کنید."
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "First Name"
+msgstr "نام"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:125
+msgid "Get Telegram API ready"
+msgstr "تنظیمات خبرنامه روبات تلگرام"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:106
+msgid "Hourly"
+msgstr "هر ساعت"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:94
+msgid "Manual"
+msgstr "آپدیت دستی"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/notification-metabox.php:33
+msgid "Message Text"
+msgstr "متن پیام"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "New Item"
+msgstr "عضو جدید"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:119
+msgid "No Limit"
+msgstr "بدون محدودیت"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Not found"
+msgstr "نتیچه ای یافت نشد"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Not found in Trash"
+msgstr "زباله دان خالی است"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Parent Item:"
+msgstr "مادر:"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Search Item"
+msgstr "جستجو"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:125
+msgid "Send Notification for "
+msgstr "قابلیت ارسال خبرنامه هنگام ایجاد  "
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/notification-metabox.php:30
+msgid "Send to All Subscribers."
+msgstr "ارسال خبرنامه برای همه اعضا"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Status"
+msgstr "وضعیت"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Subscribe Date"
+msgstr "تاریخ عضویت"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Subscriber ID"
+msgstr "شناسه"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:125
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:157
+msgid "Telegram API"
+msgstr "API تلگرام"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Telegram Bot Subscribers"
+msgstr "اعضای خبرنامه روبات تلگرام"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/notification-metabox.php:1
+msgid "Telegram Newsletter"
+msgstr "خبرنامه تلگرام"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-page.php:1
+msgid ""
+"There is Some Errors, No Updates Received from Telegram API!. Please Check "
+"Your Telegram API Settings.<br />"
+msgstr ""
+"خطایی رخ داده است، هیچ آپدیت جدیدی از تلگرام دریافت نشد، لطفا تنظیمات رو "
+"بازبینی کنید."
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:107
+msgid "Twice Daily"
+msgstr "دو بار در روز"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/notification-metabox.php:35
+msgid "URL"
+msgstr "لینک مطلب"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/notification-metabox.php:36
+msgid "URL and Custom Message"
+msgstr "لینک مطلب به همراه پیام دلخواه"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Unknown"
+msgstr "نا مشخص"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Update Item"
+msgstr "بروزرسانی"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:125
+msgid "Use getUpdates or Webhook"
+msgstr "انتخاب متد ارتباط با تلگرام"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "Username"
+msgstr "نام کاربری"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "View Item"
+msgstr "نمایش"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:95
+msgid "Webhook"
+msgstr ""
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:125
+msgid "Welcome Message to New Subscriber"
+msgstr "پیام خوش آمد برای اعضای جدید"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:93
+msgid "getUpdates"
+msgstr ""
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:125
+msgid "getUpdates Limit in every recurrence"
+msgstr "محدود کردن آپدیت های جدید در هر بار ارتباط با تلگرام"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/api-settings.php:125
+msgid "getUpdates Recurrence"
+msgstr "تعداد درخواست اتوماتیک برای دریافت اعضای جدید در روز"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "subscriber"
+msgstr "عضو خبرنامه"
+
+#. Text in function
+#: domains/supsima.com/public_html/crm/wp-content/plugins/telegram-newsletter/includes/users-save.php:1
+msgid "subscribers"
+msgstr "اعضای خبرنامه"
