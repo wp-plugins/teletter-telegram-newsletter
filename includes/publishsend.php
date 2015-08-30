@@ -1,5 +1,5 @@
 <?php
-function sendmessage_publish($post_ID) {
+function sendmessage_publish($post_ID,$offset,$limit) {
 
 	   $type = get_post_meta ($post_ID,'tbot_select',true);
 	   $custommessage = get_post_meta ($post_ID,'tbot_text',true);
@@ -15,15 +15,34 @@ function sendmessage_publish($post_ID) {
 	// Send a message to user to know that subscriptions is activated
 	$options = get_option( 'tbot_settings' );
 	$token = $options['tbot_text_token'];
+	$users = $options['tbot_select_users'];
 	// Get All Subscribers
+	if ($users == 'all') {
 	$args = array (
 	'post_type'              => array( 'subscriber' ),
 	'pagination'             => false,
-	'posts_per_page'         => '-1',
+	'posts_per_page'         => $limit,
+	'offset'         => $offset,
+	);
+	} else if ($users == 'active') {
+	$args = array (
+	'post_type'              => array( 'subscriber' ),
+	'pagination'             => false,
+	'posts_per_page'         => $limit,
 	'meta_key' => 'activity',
 	'meta_value' => 'active',
-	'meta_compare' => '==',  
+	'meta_compare' => '==',
+	'offset'         => $offset,
+	);	
+	} else {
+	$args = array (
+	'post_type'              => array( 'subscriber' ),
+	'pagination'             => false,
+	'posts_per_page'         => $limit,
+	'offset'         => $offset,
 	);
+	}
+
 
 	// The Query
 	$query = new WP_Query( $args );
@@ -34,25 +53,7 @@ if ( $query->have_posts() ) {
 		$query->the_post();
 		//Message to every user
 		$chat_id = get_the_title();
-		$url = 'https://api.telegram.org/bot'.$token.'/sendMessage';
-		$data = array('chat_id' => $chat_id,'text' => $message);
-		$options = array(
-        'http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query($data),
-		)
-	);
-
-	$context  = stream_context_create($options);
-	$updated = file_get_contents($url, false, $context);
-	$results = json_decode($updated, true);
-	//remove deactive users
-	$status = $results['ok'];
-	if (!$status == 1) {
-	$page = get_page_by_title( $chat_id,OBJECT,'subscriber' );
-	update_post_meta ($page->ID,'send','B');
-	}
+		sendmessagebot ($chat_id,$message);
    }
 } 
 

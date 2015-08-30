@@ -3,8 +3,8 @@ Contributors: websima
 Donate link: http://websima.com
 Tags: Telegram, Telegram Bot, Telegram Newsletter, Newsletter, translate ready
 Requires at least: 3.0.1
-Tested up to: 4.2.4
-Stable tag: 1
+Tested up to: 4.3
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,10 +28,15 @@ Features:
 *   Set currency time for get new updates (Hourly, Twice a day,Daily)  
 *   Get Updates Manually
 *   Supporting Custom post types 
-*   Showing de active users (unsubscribers)
+*   Showing de active users (unsubscribers) (not working on some sites!)
 *   Translate Ready
+*   Send Newsletter to all users or active users
+*   Define admin users to send newsletter from your telegram account
+*   admin users receive new subscribers and unsubscribers alarm on their telegram account 
 
 Note: this plugin is not supporting Webhook method now, we are working on it.
+
+Visit <a href="http://websima.com/teletter" title="افزونه تلگرام">Telegram Newsletter</a> for Persian instruction.
 
 == Installation ==
 From your WordPress dashboard
@@ -70,6 +75,11 @@ Yes you can send newsletter whenever you publish or update a post, but the newsl
 
 == Changelog ==
 
+= 1.1 =
+* Fix Some Bugs.
+* Add admin user to send newsletter directly from telegram.
+* Send Newsletter to all users or just active users
+
 = 1.0 =
 * Fix Some Bugs.
 * Indicating deactivated subscribers.
@@ -79,6 +89,8 @@ Yes you can send newsletter whenever you publish or update a post, but the newsl
 * First Release.
 
 == Upgrade Notice ==
+= 1.1 =
+Admin users can send newsletter from their telegram account.
 
 = 1.0 =
 indicate deactivated subscribers and not sending messages to them any more.

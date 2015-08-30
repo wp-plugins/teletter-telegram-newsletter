@@ -75,7 +75,21 @@ function tbot_meta_box_save( $post_id )
 	// This is purely my personal preference for saving checkboxes
 	$chk = ( isset( $_POST['tbot_check'] ) && $_POST['tbot_check'] ) ? 'on' : 'off';
 	if ($chk == 'on'){
-		sendmessage_publish ($post_id);
+	$args = array (
+	'post_type'              => array( 'subscriber' ),
+	'pagination'             => false,
+	'posts_per_page'         => '-1',
+	);
+	$query = new WP_Query( $args );
+	$total = $query->post_count;
+	$options = get_option( 'tbot_settings' );
+    $limit = $options['tbot_select_sendlimit'];
+	if ($limit = 'nolimit') {$limit = $total;}
+	$count = intval($total / $limit);
+	for ($i=0;$i<=$count;$i++) {
+	$offset = $i * $limit;
+	sendmessage_publish ($post_id, $offset,$limit);
+	}
 	}
 
 }

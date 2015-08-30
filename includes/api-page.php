@@ -3,6 +3,14 @@ $options = get_option( 'tbot_settings' );
 $token = $options['tbot_text_token'];
 $offset = get_site_option( 'lastupdateid' );
 $limit = $options['tbot_select_limit'];
+$welcome = $options['tbot_text_newsubscriber'];
+$unsubscribe = $options['tbot_text_unsubscribe'];
+$unsubcommand = $options['tbot_text_unsubscribe_command'];
+$adminpass = $options['tbot_text_admin'];
+$adminupdate = $options['tbot_select_admin_update'];
+if($unsubcommand == '') {$unsubcommand == '/remove';}
+if($welcome == '') {$welcome = 'Successfully Subscribed';}
+if($unsubscribe == '') {$unsubscribe = 'Successfully Un Subscribed';}
 $offset = $offset+1;
 $url = 'https://api.telegram.org/bot'.$token.'/getUpdates';
 if ($offset == 1) {
@@ -49,6 +57,7 @@ foreach ($newupdates as $update) {
 	$user_name = $from['username'];
 	$date = $update['message']['date'];
 	$text = $update['message']['text'];
+	$photo = $update['message']['photo'];
 	$post_date = date_i18n( 'Y-m-d H:i:s', $date, true );	
 	if ($text == '/start') {
 		$checker = get_page_by_title( $user_id,  ARRAY_A, 'subscriber' );
@@ -68,25 +77,62 @@ foreach ($newupdates as $update) {
 		update_post_meta ($post_id,'activity','active');
 		$j++;
 	// Send a message to user to know that subscriptions is activated
-	$url = 'https://api.telegram.org/bot'.$token.'/sendMessage';
-	$data = array('chat_id' => $user_id,'text' => 'عضویت تایید شد.');
-		$options = array(
-        'http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query($data),
-		)
-	);
-
-	$context  = stream_context_create($options);
-	$update = file_get_contents($url, false, $context);
-	//end send message
+	sendmessagebot ($user_id,$welcome);
+	if ($adminupdate == 'both' || $adminupdate == 'subs') {
+	//sendadminmessagebot ('new subscriber');
+	}
 		}
+	} elseif ($text == $unsubcommand) {
+		$checker = get_page_by_title( $user_id,  OBJECT, 'subscriber' );
+		if ($checker){
+	// make user de active
+		update_post_meta ($checker->ID,'activity','deactive');
+	// Send a message to user to know that unsubscriptions is activated
+	sendmessagebot ($user_id,$unsubscribe);
+	if ($adminupdate == 'both' || $adminupdate == 'unsubs') {
+	//sendadminmessagebot ('new unsubscription');
 	}
+		}
+	} elseif ($text == $adminpass) {
+		$checker = get_page_by_title( $user_id,  OBJECT, 'subscriber' );
+		if ($checker){
+	// make user de active
+	update_post_meta ($checker->ID,'isadmin','yes');
+	// Send a message to user to know that Admin Access is activated
+	sendmessagebot ($user_id,'You are the Boss!');
+		}
+	} else {
+		$checker = get_page_by_title( $user_id,  OBJECT, 'subscriber' );
+		if ($checker){
+	// check if is user admin
+		$isadmin = get_post_meta ($checker->ID,'isadmin',true);
+		if ($isadmin == 'yes') {
+				$args = array (
+				'post_type'              => array( 'subscriber' ),
+				'pagination'             => false,
+				'posts_per_page'         => '-1',
+				);
+				$query = new WP_Query( $args );
+				$total = $query->post_count;
+				$options = get_option( 'tbot_settings' );
+				$limit = $options['tbot_select_sendlimit'];
+				if ($limit = 'nolimit') {$limit = $total;}
+				$count = intval($total / $limit);
+				for ($i=0;$i<=$count;$i++) {
+					$offset = $i * $limit;
+					if ($text) {
+						sendnewsbot ($text,$offset,$limit);
+					} elseif ($photo) {
+						sendphotonewsbot ($photo[0]['file_id'],$offset,$limit);
+					}
+					
+				}			
+		}
+	
+		}
+	} 
 	$i++;
-	if ($i == $number) {
 		update_site_option( 'lastupdateid', $update_id ); //Grab the last update for cronjob
-	}
 }
 printf(__('%s New Subscribers Added to your List.<br />', 'tbot'), $j);
 } else {

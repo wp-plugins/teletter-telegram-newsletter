@@ -52,6 +52,7 @@ function subscribers_columns( $columns ) {
 		'lname' => __( 'Last Name' ,'tbot'),
 		'uname' => __( 'Username' ,'tbot'),
 		'activity' => __( 'Status' ,'tbot'),
+		'isadmin' => __( 'Admin' ,'tbot'),
 		'date' => __( 'Subscribe Date' ,'tbot')
 	);
 
@@ -122,6 +123,20 @@ function my_manage_subscriber__columns( $column, $post_id ) {
 			/* If there is a duration, append 'minutes' to the text string. */
 			else
 				printf($activity );
+
+			break;
+			case 'isadmin' :
+
+			/* Get the post meta. */
+			$activity = get_post_meta( $post_id, 'isadmin', true );
+
+			/* If no duration is found, output a default message. */
+			if ( empty( $activity ) )
+				echo __( 'subscriber' ,'tbot');
+
+			/* If there is a duration, append 'minutes' to the text string. */
+			else
+				echo __( 'admin' ,'tbot');
 
 			break;
 		/* Just break out of the switch statement for everything else. */
