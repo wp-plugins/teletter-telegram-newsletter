@@ -49,9 +49,9 @@ if ( $query->have_posts() ) {
 	$results = json_decode($updated, true);
 	//remove deactive users
 	$status = $results['ok'];
-	if (!$status == 'false') {
+	if (!$status == 1) {
 	$page = get_page_by_title( $chat_id,OBJECT,'subscriber' );
-	update_post_meta ($page->ID,'activity','deactive');
+	update_post_meta ($page->ID,'send','B');
 	}
    }
 } 

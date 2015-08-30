@@ -3,6 +3,8 @@ $options = get_option( 'tbot_settings' );
 $token = $options['tbot_text_token'];
 $offset = get_site_option( 'lastupdateid' );
 $limit = $options['tbot_select_limit'];
+$welcome = $options['tbot_text_newsubscriber'];
+if($welcome == '') {$welcome = 'Successfully Subscribed';}
 $offset = $offset+1;
 $url = 'https://api.telegram.org/bot'.$token.'/getUpdates';
 if ($offset == 1) {
@@ -69,7 +71,7 @@ foreach ($newupdates as $update) {
 		$j++;
 	// Send a message to user to know that subscriptions is activated
 	$url = 'https://api.telegram.org/bot'.$token.'/sendMessage';
-	$data = array('chat_id' => $user_id,'text' => 'عضویت تایید شد.');
+	$data = array('chat_id' => $user_id,'text' => $welcome);
 		$options = array(
         'http' => array(
         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
