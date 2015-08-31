@@ -17,6 +17,7 @@ Bots are special Telegram accounts designed to handle messages automatically. Us
 Teletter (Telegram Newsletter) helps you to integrate Telegram bot to your Wordpress site and send newsletter to subscribers.
 
 first of all you have to <a href="https://core.telegram.org/bots#botfather">Create a New Bot</a> and get your Token API, then install the plugin, configure settings and send newsletters to subscribers.
+Persian Tutorial : <a href="http://websima.com/%D8%B1%D8%A8%D8%A7%D8%AA-%D8%AA%D9%84%DA%AF%D8%B1%D8%A7%D9%85/">ربات تلگرام چیست</a>
 
 Features:
 
@@ -36,7 +37,7 @@ Features:
 
 Note: this plugin is not supporting Webhook method now, we are working on it.
 
-Visit <a href="http://websima.com/teletter" title="افزونه تلگرام">Telegram Newsletter</a> for Persian instruction.
+Visit Tutorials in Persian Language: <a href="http://websima.com/teletter" title="افزونه تلگرام">افزونه تلگرام</a>
 
 == Installation ==
 From your WordPress dashboard
