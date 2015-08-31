@@ -60,7 +60,7 @@ foreach ($newupdates as $update) {
 	$photo = $update['message']['photo'];
 	$post_date = date_i18n( 'Y-m-d H:i:s', $date, true );	
 	if ($text == '/start') {
-		$checker = get_page_by_title( $user_id,  ARRAY_A, 'subscriber' );
+		$checker = get_page_by_title( $user_id,  OBJECT, 'subscriber' );
 		if (!$checker){
 	// Create post object
 		$my_post = array(
