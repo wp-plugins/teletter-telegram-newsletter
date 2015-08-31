@@ -82,6 +82,12 @@ foreach ($newupdates as $update) {
 	if ($adminupdate == 'both' || $adminupdate == 'subs') {
 	sendadminmessagebot ('new subscriber');
 	}
+		} else {
+		update_post_meta ($checker->ID,'activity','active');
+		sendmessagebot ($user_id,$welcome);
+	if ($adminupdate == 'both' || $adminupdate == 'subs') {
+	sendadminmessagebot ('new subscriber');
+		}
 		}
 	} elseif ($text == $unsubcommand) {
 		$checker = get_page_by_title( $user_id,  OBJECT, 'subscriber' );
