@@ -257,9 +257,16 @@ function telegram_api_options_page(  ) {
 
 	?>
 	<form action='options.php' method='post'>
-		
+		<style>
+		a.teletterbanner {
+			right: 5%;left:auto;position: absolute;
+		}
+		body.rtl a.teletterbanner {
+			left: 5%;right:auto;
+		}
+		</style>
 		<h2><?php printf(__( 'Telegram API', 'tbot' )); ?></h2>
-		<a style="left: 5%;position: absolute;"href="http://websima.com/teletter" title="websima teletter"><img width="281" height="364" src="<?php echo plugins_url( 'teletter.png', __FILE__ ); ?>" alt="وبسیما تلتر"/></a>
+		<a class="teletterbanner" href="http://websima.com/teletter" title="websima teletter"><img width="281" height="364" src="<?php echo plugins_url( 'teletter.png', __FILE__ ); ?>" alt="وبسیما تلتر"/></a>
 		<?php
 		settings_fields( 'pluginPage' );
 		do_settings_sections( 'pluginPage' );
