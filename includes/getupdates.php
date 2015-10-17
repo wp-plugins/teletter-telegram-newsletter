@@ -40,7 +40,7 @@ $options = array(
 );
 
 $context  = stream_context_create($options);
-$update = file_get_contents($url, false, $context);
+$update = @file_get_contents($url, false, $context);
 $results = json_decode($update, true);
 //print_r ($results);
 
@@ -48,7 +48,11 @@ $status = $results['ok'];
 if($status == 1) {
 	$newupdates = $results['result'];
 	$number = count($newupdates);
+	printf(__('%s New Updates Received...<br/>', 'tbot'), $number);
+	$i = 0;
+	$j = 0;
 foreach ($newupdates as $update) {
+
     //print_r ($value);
 	$update_id = $update['update_id'];
 	$from = $update['message']['from'];
@@ -59,10 +63,12 @@ foreach ($newupdates as $update) {
 	$date = $update['message']['date'];
 	$text = $update['message']['text'];
 	$photo = $update['message']['photo'];
+		
 	$post_date = date_i18n( 'Y-m-d H:i:s', $date, true );	
 	if ($text == '/start') {
-		$checker = get_page_by_title( $user_id,  OBJECT, 'subscriber' );
+		$checker = get_page_by_title( $user_id,  ARRAY_A, 'subscriber' );
 		if (!$checker){
+		teletter_log('new subscriber', $update_id ,$user_id, $text);
 	// Create post object
 		$my_post = array(
 		'post_type'     => 'subscriber',
@@ -71,42 +77,39 @@ foreach ($newupdates as $update) {
 		'post_date_gmt' => $post_date,
 		);
 	// Insert the post into the database
-		$post_id = wp_insert_post( $my_post );
+		$post_id = wp_insert_post( $my_post, $wp_error );
 		update_post_meta ($post_id,'first_name',$first_name);
 		update_post_meta ($post_id,'last_name',$last_name);
 		update_post_meta ($post_id,'username',$user_name);
 		update_post_meta ($post_id,'activity','active');
+		$j++;
 	// Send a message to user to know that subscriptions is activated
-		// Send a message to user to know that subscriptions is activated
 	sendmessagebot ($user_id,$welcome);
+	teletter_log(__('New Subscriber', 'tbot'), $update_id ,$user_id, $text);
 	if ($adminupdate == 'both' || $adminupdate == 'subs') {
-	sendadminmessagebot ('new subscriber');
+	sendadminmessagebot (__('New Subscriber', 'tbot'));
 	}
-		} else {
-		update_post_meta ($checker->ID,'activity','active');
-		sendmessagebot ($user_id,$welcome);
-	if ($adminupdate == 'both' || $adminupdate == 'subs') {
-	sendadminmessagebot ('new subscriber');
-		}
 		}
 	} elseif ($text == $unsubcommand) {
 		$checker = get_page_by_title( $user_id,  OBJECT, 'subscriber' );
 		if ($checker){
 	// make user de active
 		update_post_meta ($checker->ID,'activity','deactive');
+		teletter_log('new unsubscriber', $update_id ,$user_id, $text);
 	// Send a message to user to know that unsubscriptions is activated
 	sendmessagebot ($user_id,$unsubscribe);
 	if ($adminupdate == 'both' || $adminupdate == 'unsubs') {
-	sendadminmessagebot ('new unsubscription');
+	sendadminmessagebot (__('New Un Subscription', 'tbot'));
 	}
 		}
 	} elseif ($text == $adminpass) {
 		$checker = get_page_by_title( $user_id,  OBJECT, 'subscriber' );
 		if ($checker){
 	// make user de active
-		update_post_meta ($checker->ID,'isadmin','yes');
+	update_post_meta ($checker->ID,'isadmin','yes');
+	teletter_log(__('New Admin', 'tbot'), $update_id ,$user_id, $text);
 	// Send a message to user to know that Admin Access is activated
-	sendmessagebot ($user_id,'You are the Boss!');
+	sendmessagebot ($user_id,__('You Are the Boss!', 'tbot'));
 		}
 	} else {
 		$checker = get_page_by_title( $user_id,  OBJECT, 'subscriber' );
@@ -123,23 +126,32 @@ foreach ($newupdates as $update) {
 				$total = $query->post_count;
 				$options = get_option( 'tbot_settings' );
 				$limit = $options['tbot_select_sendlimit'];
-				if ($limit = 'nolimit') {$limit = $total;}
+				if ($limit == 'nolimit') {$limit = $total;}
 				$count = intval($total / $limit);
 				for ($i=0;$i<=$count;$i++) {
 					$offset = $i * $limit;
 					if ($text) {
 						sendnewsbot ($text,$offset,$limit);
+						teletter_log(__('Admin Sent Text', 'tbot'), $update_id ,$user_id, $text);
+
 					} elseif ($photo) {
 						sendphotonewsbot ($photo[0]['file_id'],$offset,$limit);
+						teletter_log(__('Admin Sent Photo', 'tbot'), $update_id ,$user_id, 'photo');
+						
 					}
 					
 				}			
+		} else {
+			teletter_log(__('No Response', 'tbot'), $update_id ,$user_id, $text);
 		}
 	
 		}
 	} 
+	$i++;
 		update_site_option( 'lastupdateid', $update_id ); //Grab the last update for cronjob
 } //end foreach
+} else {
+	//do nothing
 } //end if status is ok
 }
 	}

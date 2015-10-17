@@ -21,6 +21,7 @@ function tbot_meta_box_cb( $post )
 {
 	$values = get_post_custom( $post->ID );
 	$text = isset( $values['tbot_text'] ) ? esc_attr( $values['tbot_text'][0] ) : '';
+	$image = isset( $values['tbot_image'] ) ? esc_attr( $values['tbot_image'][0] ) : '';
 	$selected = isset( $values['tbot_select'] ) ? esc_attr( $values['tbot_select'][0] ) : '';
 	$check = isset( $values['tbot_check'] ) ? esc_attr( $values['tbot_check'][0] ) : '';
 	wp_nonce_field( 'tbot_nonce', 'meta_box_nonce' );
@@ -33,14 +34,21 @@ function tbot_meta_box_cb( $post )
 		<label for="tbot_select"><?php printf(__( 'Message Text', 'tbot' )); ?></label>
 		<select name="tbot_select" id="tbot_select">
 			<option value="url" <?php selected( $selected, 'url' ); ?>><?php printf(__( 'URL', 'tbot' )); ?></option>
+			<option value="shorturl" <?php selected( $selected, 'shorturl' ); ?>><?php printf(__( 'Short URL', 'tbot' )); ?></option>
 			<option value="customurl" <?php selected( $selected, 'customurl' ); ?>><?php printf(__( 'URL and Custom Message', 'tbot' )); ?></option>
+			<option value="shortcustomurl" <?php selected( $selected, 'shortcustomurl' ); ?>><?php printf(__( 'Short URL and Custom Message', 'tbot' )); ?></option>
 			<option value="customtext" <?php selected( $selected, 'customtext' ); ?>><?php printf(__( 'Custom Message', 'tbot' )); ?></option>
 		</select>
 	</p>
 
 	<p>
-		<label for="tbot_text"><?php printf(__( 'Custom Message', 'tbot' )); ?></label>
-		<input type="text" name="tbot_text" id="tbot_text" value="<?php echo $text; ?>" />
+		<label for="tbot_text" style="display: block;"><?php printf(__( 'Custom Message', 'tbot' )); ?></label>
+		<textarea style="width: 99%;"rows="3" name="tbot_text" id="tbot_text"><?php echo $text; ?></textarea>
+	</p>
+	<p>
+		<label for="tbot_image" style="display: block;"><?php printf(__( 'Custom Image', 'tbot' )); ?></label>
+		<textarea style="width: 99%;"rows="3" name="tbot_image" id="tbot_image"><?php echo $image; ?></textarea>
+		<span><?php printf(__( 'Please Enter Full Image URL on your site, Leave empty to not send images', 'tbot' )); ?></span>
 	</p>
 	<?php	
 }
@@ -68,6 +76,8 @@ function tbot_meta_box_save( $post_id )
 	// Probably a good idea to make sure your data is set
 	if( isset( $_POST['tbot_text'] ) )
 		update_post_meta( $post_id, 'tbot_text', wp_kses( $_POST['tbot_text'], $allowed ) );
+	if( isset( $_POST['tbot_image'] ) )
+		update_post_meta( $post_id, 'tbot_image', wp_kses( $_POST['tbot_image'], $allowed ) );
 		
 	if( isset( $_POST['tbot_select'] ) )
 		update_post_meta( $post_id, 'tbot_select', esc_attr( $_POST['tbot_select'] ) );
@@ -84,7 +94,7 @@ function tbot_meta_box_save( $post_id )
 	$total = $query->post_count;
 	$options = get_option( 'tbot_settings' );
     $limit = $options['tbot_select_sendlimit'];
-	if ($limit = 'nolimit') {$limit = $total;}
+	if ($limit == 'nolimit') {$limit = $total;}
 	$count = intval($total / $limit);
 	for ($i=0;$i<=$count;$i++) {
 	$offset = $i * $limit;

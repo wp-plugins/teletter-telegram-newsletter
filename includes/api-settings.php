@@ -1,13 +1,5 @@
 <?php
-add_action( 'admin_menu', 'tbot_add_admin_menu' );
 add_action( 'admin_init', 'tbot_settings_init' );
-
-
-function tbot_add_admin_menu(  ) { 
-
-	add_options_page( __('Telegram API', 'tbot'), __('Telegram API', 'tbot'), 'manage_options', 'telegram_api', 'telegram_api_options_page' );
-
-}
 
 
 function tbot_settings_init(  ) { 
@@ -258,15 +250,15 @@ function telegram_api_options_page(  ) {
 	?>
 	<form action='options.php' method='post'>
 		<style>
-		a.teletterbanner {
-			right: 5%;left:auto;position: absolute;
+		a.websimabanner {
+			right:5%;left:auto;position: absolute;
 		}
-		body.rtl a.teletterbanner {
-			left: 5%;right:auto;
+		body.rtl a.websimabanner {
+			left: 5%;right:auto
 		}
 		</style>
 		<h2><?php printf(__( 'Telegram API', 'tbot' )); ?></h2>
-		<a class="teletterbanner" href="http://websima.com/teletter" title="websima teletter"><img width="281" height="364" src="<?php echo plugins_url( 'teletter.png', __FILE__ ); ?>" alt="وبسیما تلتر"/></a>
+		<a class="websimabanner" href="http://websima.com/teletter" title="websima teletter"><img width="281" height="364" src="<?php echo plugins_url( 'teletter.png', __FILE__ ); ?>" alt="وبسیما تلتر"/></a>
 		<?php
 		settings_fields( 'pluginPage' );
 		do_settings_sections( 'pluginPage' );

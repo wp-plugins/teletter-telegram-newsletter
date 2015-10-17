@@ -3,8 +3,8 @@ Contributors: websima
 Donate link: http://websima.com
 Tags: Telegram, Telegram Bot, Telegram Newsletter, Newsletter, translate ready
 Requires at least: 3.0.1
-Tested up to: 4.3
-Stable tag: 1.1
+Tested up to: 4.3.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,14 +29,16 @@ Features:
 *   Set currency time for get new updates (Hourly, Twice a day,Daily)  
 *   Get Updates Manually
 *   Supporting Custom post types 
-*   Showing de active users (unsubscribers) (not working on some sites!)
+*   Showing de active users (unsubscribers)
 *   Translate Ready
 *   Send Newsletter to all users or active users
-*   Define admin users to send newsletter from your telegram account
-*   admin users receive new subscribers and unsubscribers alarm on their telegram account 
+*   Define admin users to send newsletter from your telegram account (Supporting Text or Image)
+*   Send Image with Captions to All Users from Admin panel
+*   Log all Messages Sent or Received on Admin panel
+*   Admin users receive new subscribers and unsubscribers alarm on their telegram account 
 
 Note: this plugin is not supporting Webhook method now, we are working on it.
-
+Version 1.2 was Updated by using some codes from <a href="https://wordpress.org/plugins/telegram-bot/">Telegram Bot</a> Plugin.
 
 Visit Tutorials in Persian Language: <a href="http://websima.com/teletter" title="افزونه تلگرام">افزونه تلگرام</a>
 
@@ -77,6 +79,13 @@ Yes you can send newsletter whenever you publish or update a post, but the newsl
 
 == Changelog ==
 
+= 1.2 =
+* Fix Some Bugs.
+* Add Messages Log.
+* Change Menu and Submenus
+* Add Ability of Send Photo to users from Wordpress panel
+* Add Ability of Send Photo to users from Telegram Admin user
+
 = 1.1 =
 * Fix Some Bugs.
 * Add admin user to send newsletter directly from telegram.
@@ -91,6 +100,9 @@ Yes you can send newsletter whenever you publish or update a post, but the newsl
 * First Release.
 
 == Upgrade Notice ==
+= 1.2 =
+Send photos to subscribers and view Log History
+
 = 1.1 =
 Admin users can send newsletter from their telegram account.
 
